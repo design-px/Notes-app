@@ -2,32 +2,22 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import useDateAndTime from '../hooks/useDateAndTime';
 
-function EditNote({ notes, setNotes, setFolders }) {
+function EditNote({ notes, setFolders }) {
 
   const { id } = useParams()
-  const note = notes.find(prevNote => prevNote.id === id)
-  const [title, setTitle] = useState(note.title)
-  const [details, setDetails] = useState(note.details)
-  const date = useDateAndTime()
+  const findNote = notes.find(prevNote => prevNote.id === id)
+  const [editedTitle, setTitle] = useState(findNote.title)
+  const [editedDetails, setDetails] = useState(findNote.details)
+  const newDate = useDateAndTime()
   const navigate = useNavigate()
 
 
   const handleSubmit = e => {
     e.preventDefault()
 
-    let fname = note.folderName
+    let fname = findNote.folderName
 
-    if (title && details) {
-      const editedNote = {
-        ...note,
-        title,
-        details,
-        date
-      }
-
-      setNotes(prevNotes => prevNotes.map(prevNote => {
-        return prevNote.id === id ? editedNote : note
-      }))
+    if (editedTitle && editedDetails) {
 
       setFolders(prevFolders => prevFolders.map(folder =>
         folder.folderName === fname ?
@@ -37,9 +27,9 @@ function EditNote({ notes, setNotes, setFolders }) {
               if (note.id === id) {
                 return {
                   ...note,
-                  title,
-                  details,
-                  date
+                  title: editedTitle,
+                  details: editedDetails,
+                  date: newDate
                 }
               }
               else {
@@ -66,12 +56,12 @@ function EditNote({ notes, setNotes, setFolders }) {
       <form className="note-form" onSubmit={handleSubmit}>
 
         <div className="label-box">
-          <input type="text" id="note-title" autoFocus value={title} onChange={e => setTitle(e.target.value)} />
+          <input type="text" id="note-title" autoFocus value={editedTitle} onChange={e => setTitle(e.target.value)} />
           <label htmlFor="note-title" className="input-label">Note Title</label>
         </div>
 
         <div className="label-box">
-          <textarea id="note-details" rows="15" value={details} onChange={e => setDetails(e.target.value)}></textarea>
+          <textarea id="note-details" rows="15" value={editedDetails} onChange={e => setDetails(e.target.value)}></textarea>
           <label htmlFor="note-details" className="textarea-label">Type your note...</label>
         </div>
       </form>

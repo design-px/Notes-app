@@ -3,7 +3,7 @@ import NotesList from '../components/NotesList';
 import { useMemo, useState } from 'react';
 import NoteModal from '../components/NoteModal';
 
-function AllNotes({ notes, setNotes, setFolders }) {
+function AllNotes({ notes, setFolders }) {
 
   const [text, setText] = useState('')
   const [modal, setModal] = useState('')
@@ -43,7 +43,7 @@ function AllNotes({ notes, setNotes, setFolders }) {
           }
         </div>
       </div>
-      <NoteModal to={`editnote/${noteToModal.id}`} noteToModal={noteToModal} modal={modal} setModal={setModal} setNotes={setNotes} setFolders={setFolders} />
+      <NoteModal to={`editnote/${noteToModal.id}`} noteToModal={noteToModal} modal={modal} setModal={setModal} setFolders={setFolders} />
     </>
 
   );

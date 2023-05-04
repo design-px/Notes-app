@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useDateAndTime from '../hooks/useDateAndTime';
 import useUniqueId from "../hooks/useUniqueId";
 
-function CreateNote({ setNotes, folders, setFolders }) {
+function CreateNote({ folders, setFolders }) {
 
   const [title, setTitle] = useState('')
   const [details, setDetails] = useState('')
@@ -22,8 +22,6 @@ function CreateNote({ setNotes, folders, setFolders }) {
         details,
         date
       }
-
-      setNotes(prevNotes => [note, ...prevNotes])
 
       setFolders(prevFolders => prevFolders.map(folder =>
         folder.folderName === folderChoice ?

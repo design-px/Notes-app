@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
 
-function NoteModal({ to, noteToModal, modal, setModal, setNotes, setFolders }) {
+function NoteModal({ to, noteToModal, modal, setModal, setFolders }) {
 
   const handleDelete = () => {
-    if (window.confirm('Are you sure you want to delete?')) {
+    if (window.confirm(`Are you sure you want to delete?\n ${noteToModal.title} note from ${noteToModal.folderName}`)) {
       let fname = noteToModal.folderName
-
-      setNotes(prevNotes => prevNotes.filter(prevNote => {
-        return prevNote.id !== noteToModal.id
-      }))
 
       setFolders(prevFolders => prevFolders.map(folder =>
         folder.folderName === fname ?
