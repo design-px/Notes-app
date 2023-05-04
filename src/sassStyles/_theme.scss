@@ -19,6 +19,15 @@
   ;
 }
 
+[data-theme='light'] {
+  --black: #9a9a9a;
+  --text: black;
+  --text-box: white;
+  --app-bg: radial-gradient(hsl(0, 0%, 84%), hsl(269, 63%, 80%));
+  --note-bg: linear-gradient(45deg, hsl(0, 0%, 88%), hsl(300, 10%, 80%));
+  --note-shadow: 0 3px 10px #252526;
+}
+
 .primary {
   background: var(--primary) !important;
 }
@@ -29,4 +38,57 @@
 
 .danger {
   background: var(--danger) !important;
+}
+
+.change-theme {
+  display: flex;
+}
+
+.theme-inp {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+
+}
+
+.theme-inp:checked+.theme-label {
+  background: #5bbdf4;
+}
+
+.theme-inp:checked+.theme-label::after {
+  left: 25px;
+  content: "☼";
+  background: linear-gradient(#0d9b65, #0028b8);
+  color: white;
+}
+
+.theme-label {
+  width: 45px;
+  height: 20px;
+  position: relative;
+  display: block;
+  background: #535353;
+  border-radius: 20px;
+  box-shadow: inset 1px 0px 2px 2px rgba(0, 0, 0, 0.4);
+  transition: all 0.5s ease-in-out;
+
+
+  &::after {
+    content: "☽";
+    color: yellow;
+    background: linear-gradient(grey, black);
+    width: 18px;
+    height: 18px;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 2px;
+    left: 2px;
+
+    transition: all 0.5s ease-in-out;
+  }
 }
