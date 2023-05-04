@@ -1,0 +1,32 @@
+:root {
+  --dark: #494848;
+  --light: #ccc;
+
+  --black: #1c1c1c;
+  --white: #f2eeee;
+
+  --primary: blue;
+  --success: green;
+  --danger: crimson;
+
+  --text: white;
+  --text-box: white;
+  --heading: black;
+
+  --app-bg: linear-gradient(45deg, hsl(0, 0%, 0%), hsl(200, 33%, 15%));
+  --note-bg: linear-gradient(45deg, hsl(0, 0%, 0%), hsl(230, 100%, 15%));
+  --btn-bg: darkmagenta;
+  ;
+}
+
+.primary {
+  background: var(--primary) !important;
+}
+
+.success {
+  background: var(--success) !important;
+}
+
+.danger {
+  background: var(--danger) !important;
+}

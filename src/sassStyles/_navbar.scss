@@ -1,0 +1,79 @@
+%activeBar {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 4px;
+  border-bottom: 4px solid var(--primary);
+  bottom: -5px;
+  animation: active-bar .5s forwards ease;
+}
+
+.nav-top {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  border-radius: 8px;
+  padding: 5px;
+  margin-bottom: 2rem;
+  align-items: center;
+  justify-content: space-around;
+  transition: all .5s ease;
+
+
+  a.active {
+    position: relative;
+    scale: 1.1;
+
+
+    &::before {
+      @extend %activeBar;
+      left: 50%;
+    }
+
+    &::after {
+      @extend %activeBar;
+      right: 50%;
+    }
+  }
+}
+
+@keyframes active-bar {
+  100% {
+    width: 50%;
+  }
+}
+
+.notes-header {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    font-size: 1.3rem;
+    background: var(--primary);
+    padding: 5px 16px;
+    border-radius: 8px;
+    color: var(--text-box);
+  }
+}
+
+
+.notes-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: .5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+
+  a {
+    background: var(--dark);
+    border-radius: 20px;
+    padding: 0.3rem 2rem;
+    color: var(--text-box);
+
+    &.active {
+      background: var(--success);
+    }
+  }
+}

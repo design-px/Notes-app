@@ -1,0 +1,24 @@
+.search-notes {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+
+  input {
+    padding: 0.5rem .7rem;
+    background: transparent;
+    border: 1px solid var(--dark);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 1.1rem;
+    width: 100%;
+  }
+
+  .btn {
+    background: var(--dark);
+    position: absolute;
+    right: 10px;
+    font-size: 1.5rem;
+    padding: 0px 8px;
+  }
+}

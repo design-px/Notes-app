@@ -1,0 +1,50 @@
+.notes-list,
+.folders-list {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+
+  .empty-note-msg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text);
+  }
+
+  .note {
+    position: relative;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 300ms ease;
+    border-radius: .5rem;
+    background: var(--note-bg);
+    box-shadow: var(--note-shadow);
+
+    &:hover {
+      scale: 1.02;
+    }
+
+    h3 {
+      text-align: center;
+    }
+
+    p {
+      opacity: 0.85;
+    }
+
+    &-text {
+      font-size: 1rem;
+      white-space: pre-wrap;
+    }
+
+    &-date {
+      font-size: .7rem;
+    }
+  }
+}

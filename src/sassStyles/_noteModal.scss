@@ -1,0 +1,66 @@
+.note-modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(52 53 53 / 60%);
+  transition: all 200ms ease-in-out;
+
+  display: none;
+  place-items: center;
+
+  .note {
+    position: absolute;
+    width: 70%;
+    height: 60%;
+    background: var(--note-bg);
+    box-shadow: var(--note-shadow);
+    padding: 1.5rem;
+    border-radius: 12px;
+    word-wrap: break-word;
+
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        border-radius: 10px;
+        font-size: 1rem;
+        padding: 5px 12px;
+      }
+    }
+
+    &-content {
+      max-height: 85%;
+      padding: 0 1rem;
+      margin-top: 1rem;
+      overflow: overlay;
+      white-space: pre-wrap;
+    }
+
+    &-title {
+      text-align: center;
+    }
+  }
+}
+
+
+.view-modal {
+  display: grid;
+  scale: 0;
+  animation: viewModal 300ms forwards;
+}
+
+@keyframes viewModal {
+  100% {
+    scale: 1;
+  }
+}
+
+@media screen and (min-width:900px) {
+  .note-modal .note {
+    width: 32rem;
+  }
+}
