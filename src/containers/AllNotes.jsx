@@ -37,7 +37,9 @@ function AllNotes({ notes, setFolders }) {
 
         <div className="notes-list" onClick={handleNoteToModal}>
           {filteredNotes.length === 0 ?
-            <p className='empty-note-msg'>No notes found</p> :
+            <p className='empty-note-msg'>
+              {notes.length == 0 ? 'Create your notes' : 'No notes found'}
+            </p> :
             filteredNotes.map(note =>
               <NotesList key={note.id} note={note} />)
           }

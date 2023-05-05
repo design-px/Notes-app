@@ -46,27 +46,30 @@ function CreateNote({ folders, setFolders }) {
 
       </div>
 
-      <form className="note-form" onSubmit={handleSubmit}>
+      {folders.length === 0 ?
+        <p className="empty-note-msg">To save your notes in folder, please create a new folder in Folders tab</p> :
+        <form className="note-form" onSubmit={handleSubmit}>
 
-        <select name="folder-choice" onChange={e => setFolderChoice(e.target.value)}>
-          <option value="">Select folder</option>
-          {
-            folders.map(({ folderName, id }) =>
-              <option value={folderName} key={id}>{folderName}</option>)
-          }
-        </select>
+          <select name="folder-choice" onChange={e => setFolderChoice(e.target.value)}>
+            <option value="">Select folder</option>
+            {
+              folders.map(({ folderName, id }) =>
+                <option value={folderName} key={id}>{folderName}</option>)
+            }
+          </select>
 
-        <div className="label-box">
-          <input type="text" id="note-title" autoFocus value={title} onChange={e => setTitle(e.target.value)} />
-          <label htmlFor="note-title" className="input-label">Note Title</label>
-        </div>
+          <div className="label-box">
+            <input type="text" id="note-title" autoFocus value={title} onChange={e => setTitle(e.target.value)} />
+            <label htmlFor="note-title" className="input-label">Note Title</label>
+          </div>
 
-        <div className="label-box">
-          <textarea id="note-details" rows="15" value={details} onChange={e => setDetails(e.target.value)}></textarea>
-          <label htmlFor="note-details" className="textarea-label">Type your note...</label>
-        </div>
+          <div className="label-box">
+            <textarea id="note-details" rows="15" value={details} onChange={e => setDetails(e.target.value)}></textarea>
+            <label htmlFor="note-details" className="textarea-label">Type your note...</label>
+          </div>
 
-      </form>
+        </form>
+      }
     </>
   );
 }

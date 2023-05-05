@@ -6,7 +6,7 @@ function Folders({ folders }) {
     <div>
       <div className="folders-list">
         {folders.length === 0 ?
-          <p className='empty-notes'>No folders found</p> :
+          <p className='empty-note-msg'>No folders found</p> :
 
           folders.map(folder =>
             <Link to={`foldernotes/${folder.id}`} key={folder.id} className="note">

@@ -1,17 +1,18 @@
+.empty-note-msg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text);
+  text-align: center;
+}
+
 .notes-list,
 .folders-list {
   display: grid;
   justify-content: center;
   grid-template-columns: 1fr 1fr;
   gap: 1.2rem;
-
-  .empty-note-msg {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--text);
-  }
 
   .note {
     position: relative;
