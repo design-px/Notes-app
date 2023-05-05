@@ -3,12 +3,14 @@ import { Link, useParams } from "react-router-dom";
 import NotesList from "../components/NotesList";
 import { useState } from "react";
 import NoteModal from "../components/NoteModal";
+import { useFolders } from "../hooks/FoldersContext";
 
-function FolderNotes({ folders }) {
+function FolderNotes() {
   const [modal, setModal] = useState('')
   const [noteToModal, setNoteToModal] = useState('')
 
   const { id } = useParams()
+  const { folders } = useFolders()
   const folder = folders.find(prevFolder => prevFolder.id === id)
   const folderNotes = folder.folderNotes;
 

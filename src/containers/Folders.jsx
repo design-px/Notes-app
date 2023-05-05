@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useFolders } from "../hooks/FoldersContext";
 
-function Folders({ folders }) {
+function Folders() {
+
+  const { folders } = useFolders()
 
   return (
     <div>

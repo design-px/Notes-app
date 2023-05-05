@@ -1,10 +1,13 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import useDateAndTime from '../hooks/useDateAndTime';
+import { useFolders } from "../hooks/FoldersContext";
 
-function EditNote({ notes, setFolders }) {
+function EditNote() {
 
   const { id } = useParams()
+  const { notes, setFolders } = useFolders()
+
   const findNote = notes.find(prevNote => prevNote.id === id)
   const [editedTitle, setTitle] = useState(findNote.title)
   const [editedDetails, setDetails] = useState(findNote.details)

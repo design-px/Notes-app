@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useFolders } from "../hooks/FoldersContext";
 
-function NoteModal({ to, noteToModal, modal, setModal, setFolders }) {
+function NoteModal({ to, noteToModal, modal, setModal }) {
+
+  const { setFolders } = useFolders()
 
   const handleDelete = () => {
     if (window.confirm(`Are you sure you want to delete?\n ${noteToModal.title} note from ${noteToModal.folderName}`)) {
