@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useUniqueId from "../hooks/useUniqueId";
+import { useFolders } from "../hooks/FoldersContext";
 
-function CreateFolder({ setFolders }) {
+function CreateFolder() {
+
+  const { setFolders } = useFolders()
 
   const [folderName, setFolderName] = useState('')
   const navigate = useNavigate()

@@ -2,8 +2,11 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useDateAndTime from '../hooks/useDateAndTime';
 import useUniqueId from "../hooks/useUniqueId";
+import { useFolders } from "../hooks/FoldersContext";
 
-function CreateNote({ folders, setFolders }) {
+function CreateNote() {
+
+  const { folders, setFolders } = useFolders()
 
   const [title, setTitle] = useState('')
   const [details, setDetails] = useState('')

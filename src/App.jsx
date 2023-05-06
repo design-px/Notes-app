@@ -13,43 +13,34 @@ import {
   FolderNotes
 } from './containers';
 import './App.scss';
+import { FoldersProvider } from './hooks/FoldersContext';
 
 
 function App() {
-
-  const foldersContainer = JSON.parse(localStorage.getItem('folders-container')) || []
-
-  const [folders, setFolders] = useState(foldersContainer)
-
-  const notes = useMemo(() => {
-    return (folders.map(folder => folder.folderNotes)).flat()
-  }, [folders])
-
-  useEffect(() => {
-    localStorage.setItem('folders-container', JSON.stringify(folders))
-  }, [folders])
 
   return (
     <>
       <section className="notesapp">
         <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />} />
+        <FoldersProvider>
+          <Routes>
+            <Route path='/' element={<Home />} />
 
-          <Route path='notes' element={<Notes />}>
-            {/* notes */}
-            <Route index element={<AllNotes notes={notes} setFolders={setFolders} />} />
-            <Route path='createnote' element={<CreateNote folders={folders} setFolders={setFolders} />} />
-            <Route path='editnote/:id' element={<EditNote notes={notes} setFolders={setFolders} />} />
+            <Route path='notes' element={<Notes />}>
+              {/* notes */}
+              <Route index element={<AllNotes />} />
+              <Route path='createnote' element={<CreateNote />} />
+              <Route path='editnote/:id' element={<EditNote />} />
 
-            {/* folders */}
-            <Route path='folders' element={<Folders folders={folders} />} />
-            <Route path='createfolder' element={<CreateFolder setFolders={setFolders} />} />
-            <Route path='folders/foldernotes/:id' element={<FolderNotes folders={folders} />} />
-          </Route>
+              {/* folders */}
+              <Route path='folders' element={<Folders />} />
+              <Route path='createfolder' element={<CreateFolder />} />
+              <Route path='folders/foldernotes/:id' element={<FolderNotes />} />
+            </Route>
 
-          <Route path='*' element={<h2>Page Not Found</h2>} />
-        </Routes>
+            <Route path='*' element={<h2>Page Not Found</h2>} />
+          </Routes>
+        </FoldersProvider>
       </section>
     </>
   );

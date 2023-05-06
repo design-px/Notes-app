@@ -2,9 +2,11 @@
 import NotesList from '../components/NotesList';
 import { useMemo, useState } from 'react';
 import NoteModal from '../components/NoteModal';
+import { useFolders } from '../hooks/FoldersContext';
 
-function AllNotes({ notes, setFolders }) {
+function AllNotes() {
 
+  const { notes } = useFolders()
   const [text, setText] = useState('')
   const [modal, setModal] = useState('')
   const [noteToModal, setNoteToModal] = useState('')
@@ -45,7 +47,7 @@ function AllNotes({ notes, setFolders }) {
           }
         </div>
       </div>
-      <NoteModal to={`editnote/${noteToModal.id}`} noteToModal={noteToModal} modal={modal} setModal={setModal} setFolders={setFolders} />
+      <NoteModal to={`editnote/${noteToModal.id}`} noteToModal={noteToModal} modal={modal} setModal={setModal} />
     </>
 
   );
