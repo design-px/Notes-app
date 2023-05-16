@@ -6,6 +6,7 @@ import EditNote from './EditNote';
 import NoteModal from '../components/NoteModal';
 import Folders from './Folders';
 import CreateFolder from './CreateFolder';
+import RenameFolder from './RenameFolder';
 import FolderNotes from './FolderNotes';
 
 export {
@@ -17,5 +18,6 @@ export {
   NoteModal,
   Folders,
   CreateFolder,
+  RenameFolder,
   FolderNotes
 };

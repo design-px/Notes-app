@@ -33,7 +33,12 @@ function FolderNotes() {
       </div>
       <div className="notes-list" onClick={handleNoteToModal}>
         {folderNotes.length === 0 ?
-          <p className='empty-note-msg'>No notes found</p> :
+          <>
+            <div className="empty-note-msg">
+              <p>No notes found <br /> Create your Notes</p> <br />
+              <Link to='/notes/createnote' className='btn add-btn'>Add new note <span> 📝 </span> </Link>
+            </div>
+          </> :
 
           folderNotes.map(note =>
             <NotesList key={note.id} note={note} />

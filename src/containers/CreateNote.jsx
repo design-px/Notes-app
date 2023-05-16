@@ -50,7 +50,12 @@ function CreateNote() {
       </div>
 
       {folders.length === 0 ?
-        <p className="empty-note-msg">To save your notes in folder, please create a new folder in Folders tab</p> :
+        <>
+          <div className="empty-note-msg">
+            <p>To save your notes in folder, please create a new folder</p>
+            <Link to='/notes/createfolder' className='btn add-btn'>Add new folder <span> 📂</span> </Link>
+          </div>
+        </> :
         <form className="note-form" onSubmit={handleSubmit}>
 
           <select name="folder-choice" onChange={e => setFolderChoice(e.target.value)}>

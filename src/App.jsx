@@ -1,6 +1,5 @@
 
 import { Route, Routes } from 'react-router-dom';
-import { useState, useEffect, useMemo } from 'react';
 import { Navbar } from './components';
 import {
   Home,
@@ -10,11 +9,11 @@ import {
   EditNote,
   Folders,
   CreateFolder,
+  RenameFolder,
   FolderNotes
 } from './containers';
 import './App.scss';
 import { FoldersProvider } from './hooks/FoldersContext';
-
 
 function App() {
 
@@ -35,6 +34,7 @@ function App() {
               {/* folders */}
               <Route path='folders' element={<Folders />} />
               <Route path='createfolder' element={<CreateFolder />} />
+              <Route path='renamefolder/:id' element={<RenameFolder />} />
               <Route path='folders/foldernotes/:id' element={<FolderNotes />} />
             </Route>
 
